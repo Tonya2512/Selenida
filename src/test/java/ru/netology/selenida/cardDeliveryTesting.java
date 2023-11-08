@@ -8,10 +8,10 @@ import java.time.Duration;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
-import static com.codeborne.selenide.Selenide.*;
+import static com.codeborne.selenide.Selenide.$;
+import static com.codeborne.selenide.Selenide.open;
 
-public class CardOrderTesting {
-
+public class cardDeliveryTesting {
     private String generateDate(int addDays, String pattern) {
         return LocalDate.now().plusDays(addDays).format(DateTimeFormatter.ofPattern(pattern));
     }
@@ -29,10 +29,7 @@ public class CardOrderTesting {
         $("button.button").click();
         $(".notification__content")
                 .shouldBe(Condition.visible, Duration.ofSeconds(15))
-        .shouldHave(Condition.exactText("Встреча успешно забронирована на " + planningDate));
+                .shouldHave(Condition.exactText("Встреча успешно забронирована на " + planningDate));
     }
 }
-
-
-
 
