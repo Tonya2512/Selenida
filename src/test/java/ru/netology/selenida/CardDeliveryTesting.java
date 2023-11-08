@@ -8,16 +8,15 @@ import java.time.Duration;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
-import static com.codeborne.selenide.Selenide.$;
-import static com.codeborne.selenide.Selenide.open;
+import static com.codeborne.selenide.Selenide.*;
 
-public class cardDeliveryTesting {
+public class CardDeliveryTesting {
     private String generateDate(int addDays, String pattern) {
         return LocalDate.now().plusDays(addDays).format(DateTimeFormatter.ofPattern(pattern));
     }
 
     @Test
-    public void ShouldSuccessfullyCompleted() {
+    public void shouldSuccessfullyCompleted() {
         open("http://localhost:9999");
         $("[data-test-id='city'] input").setValue("Брянск");
         String planningDate = generateDate(5, "dd.MM.yyyy");
