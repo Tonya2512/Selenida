@@ -11,6 +11,7 @@ import java.time.format.DateTimeFormatter;
 import static com.codeborne.selenide.Selenide.*;
 
 public class CardDeliveryTesting {
+
     private String generateDate(int addDays, String pattern) {
         return LocalDate.now().plusDays(addDays).format(DateTimeFormatter.ofPattern(pattern));
     }
